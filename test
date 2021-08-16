@@ -1,0 +1,31 @@
+NewMessage.Event(original_update=UpdateNewChannelMessage(
+    
+    
+    
+    message=Message(
+     id=119882, 
+     peer_id=PeerChannel(channel_id=1383087261),
+     date=datetime.datetime(2021, 5, 17, 12, 9, 40, 
+     tzinfo=datetime.timezone.utc), 
+     message="DRH - NEW TOKEN WITH LIQUIDITY\n\nPCS V2 LP liquidity\n\nPair : WBNB-DRH\nLiquidity : 1.0000 BNB ($539.03)\n\nToken name : Darth (DRH)\nTotal Supply : 1,000,000,000,000\nToken price : $0.0000 (0.00 BNB)\n⛔️ NO OWNER DETECTED IN A COMMON WAY\n\nℹ️ BSCscan\n\n🦄 Swap on 1Inch\n🥞 Swap on PCS\n\nPLEASE, DON'T BUY WITHOUT DYOR !\nTHIS POST IS INDICATIVE PURPOSE ONLY\n\nPrice BOT - Price insights channel",
+     out=False,
+     mentioned=False,
+     media_unread=False,
+     silent=False,
+     post=True,
+     from_scheduled=False,
+     legacy=False,
+     edit_hide=False,
+     pinned=False,
+     from_id=None,
+     fwd_from=None,
+     via_bot_id=None,
+     reply_to=None, media=None, reply_markup=None,
+     entities=[MessageEntityBold(offset=0, length=30),
+     MessageEntityItalic(offset=32, length=19),
+     MessageEntityBold(offset=60, length=8),
+     MessageEntityBold(offset=116, length=11),
+     MessageEntityItalic(offset=194, length=36),
+     MessageEntityTextUrl(offset=232, length=10,
+     url='https://bscscan.com/token/0xb79914F64b905e2BC5aF9f004387f10744ed3304'),
+     MessageEntityTextUrl(offset=244, length=16, url='https://app.1inch.io/#/r/0x1f1b28bebfd05d9a329100a4ae3fd9dfe8673630'), MessageEntityTextUrl(offset=261, length=14, url='https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xb79914F64b905e2BC5aF9f004387f10744ed3304'), MessageEntityItalic(offset=277, length=69), MessageEntityTextUrl(offset=348, length=9, url='https://t.me/BSC_Price_BOT'), MessageEntityItalic(offset=348, length=9), MessageEntityItalic(offset=358, length=24), MessageEntityTextUrl(offset=360, length=22, url='https://t.me/bscprice')], views=1, forwards=0, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None), pts=119932, pts_count=1), pattern_match=None, message=Message(id=119882, peer_id=PeerChannel(channel_id=1383087261), date=datetime.datetime(2021, 5, 17, 12, 9, 40, tzinfo=datetime.timezone.utc), message="DRH - NEW TOKEN WITH LIQUIDITY\n\nPCS V2 LP liquidity\n\nPair : WBNB-DRH\nLiquidity : 1.0000 BNB ($539.03)\n\nToken name : Darth (DRH)\nTotal Supply : 1,000,000,000,000\nToken price : $0.0000 (0.00 BNB)\n⛔️ NO OWNER DETECTED IN A COMMON WAY\n\nℹ️ BSCscan\n\n🦄 Swap on 1Inch\n🥞 Swap on PCS\n\nPLEASE, DON'T BUY WITHOUT DYOR !\nTHIS POST IS INDICATIVE PURPOSE ONLY\n\nPrice BOT - Price insights channel", out=False, mentioned=False, media_unread=False, silent=False, post=True, from_scheduled=False, legacy=False, edit_hide=False, pinned=False, from_id=None, fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=0, length=30), MessageEntityItalic(offset=32, length=19), MessageEntityBold(offset=60, length=8), MessageEntityBold(offset=116, length=11), MessageEntityItalic(offset=194, length=36), MessageEntityTextUrl(offset=232, length=10, url='https://bscscan.com/token/0xb79914F64b905e2BC5aF9f004387f10744ed3304'), MessageEntityTextUrl(offset=244, length=16, url='https://app.1inch.io/#/r/0x1f1b28bebfd05d9a329100a4ae3fd9dfe8673630'), MessageEntityTextUrl(offset=261, length=14, url='https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xb79914F64b905e2BC5aF9f004387f10744ed3304'), MessageEntityItalic(offset=277, length=69), MessageEntityTextUrl(offset=348, length=9, url='https://t.me/BSC_Price_BOT'), MessageEntityItalic(offset=348, length=9), MessageEntityItalic(offset=358, length=24), MessageEntityTextUrl(offset=360, length=22, url='https://t.me/bscprice')], views=1, forwards=0, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))

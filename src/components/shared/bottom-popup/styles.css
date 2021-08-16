@@ -1,0 +1,79 @@
+.Pbanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: #0a1e42; */
+  color: #fff;
+  text-align: left;  
+  background-color: rgba(10, 30, 66, 0.9);
+}
+.Pbanner__wrapper {
+  
+  padding: 16px;
+  top: 100%;
+  position: relative;
+  transition: all .3s ease-out;
+  height: 100%;
+  /* background-color: rgba(10, 30, 66, 0.9); */
+}
+.banner_container { 
+  position: relative;
+  overflow: hidden;
+  height:300px;
+  width: 100%;
+  margin: auto;
+  background-color: #EFFFE9;
+  text-align: center;
+  border-radius: 5px;
+}
+.Pbanner__description:hover > .Pbanner__wrapper{
+  top: 0;
+  transform: translateY('100px');
+}
+.Pbanner__description {
+  flex: 3;
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.Pbanner__actions {
+  flex: 1;
+}
+.Pbanner__button {
+  margin: 0 8px;
+  padding: 6px 14px;
+  font-size: 18px;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 500;
+}
+.Pbanner__button:first-child {
+  margin-left: 0;
+}
+.Pbanner__button:last-child {
+  margin-right: 0;
+}
+.Pbanner__button--accept {
+  border: 1px solid #fff;
+  font-size: 1rem;
+}
+.Pbanner__button--accept:hover {
+  background-color: #fff;
+  color: #000;
+}
+.Pbanner__button--accept:active {
+  background-color: #000;
+  color: #fff;
+}
+.Pbanner__button--reject {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.Pbanner__button--reject:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "folland87.a24ui.drawer",
+  "version": "0.1.22",
+  "homepage": "https://bit.dev/folland87/a24ui/drawer",
+  "main": "dist/Drawer.js",
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "prop-types": "^15.7.2",
+    "styled-components": "^5.1.0",
+    "@bit/folland87.a24ui.button": "0.1.22"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.16"
+    }
+  }
+}
