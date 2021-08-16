@@ -191,7 +191,7 @@ const Actions  = require('../redux/actions/index');
             <p className="about-restaurant">{restaurant.about}</p>
             </div>
             <div>
-            <span><PaymentButton route={'/menu6'} color={'#2f4f4f'} link={'https://app.tabme.io/m/'+restaurant.alias} id={10} text={'Menu'} /></span>
+            <span><PaymentButton color={'#2f4f4f'} mode={restaurant.mode} link={restaurant.mode ? 'https://app.tabme.io/'+restaurant.alias : "menu6"} id={10} text={'Menu'} /></span>
             {link_buttons.map((lbtn, idx)=>{
                                 return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={lbtn.link_address} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span>
                     })}

@@ -37,14 +37,26 @@ const PaymentButton = props => {
         }
         `;
 
-return(<Link to={props.link}>
+return(<>
+    {!props.mode && <Link to={props.link}>
         <ButtonContainer props> 
             <ButtonIcon>{props.icon1}</ButtonIcon>
             <ButtonText>{props.text}</ButtonText>
             {props.children} 
             <ButtonIcon><BsChevronCompactRight/></ButtonIcon>
         </ButtonContainer>
-        </Link>);
+        </Link>}
+
+        {props.mode && <a href={props.link}>
+        <ButtonContainer props> 
+            <ButtonIcon>{props.icon1}</ButtonIcon>
+            <ButtonText>{props.text}</ButtonText>
+            {props.children} 
+            <ButtonIcon><BsChevronCompactRight/></ButtonIcon>
+        </ButtonContainer>
+        </a>}
+        
+        </>);
 
 }
 
