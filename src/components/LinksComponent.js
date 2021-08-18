@@ -188,7 +188,7 @@ const Actions  = require('../redux/actions/index');
             
             <div className="theme-card">
             <h4><b>{restaurant.rname}</b></h4>
-            <p className="about-restaurant">{restaurant.about}</p>
+            {/* <p className="about-restaurant">{restaurant.about}</p> */}
             </div>
             <div>
             <span><PaymentButton color={'#2f4f4f'} mode={restaurant.mode} link={restaurant.mode ? 'https://app.tabme.io/'+restaurant.alias : "menu6"} id={10} text={'Menu'} /></span>
