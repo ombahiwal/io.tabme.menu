@@ -51,7 +51,7 @@ function onscroll_for_menu_bar(navbar,stickyph, offset) {
 function scrollltoTargetAdjusted(cat, slideIndex, slideref){
   // document.getElementById(cat).scrollIntoView();
   slideref.slickGoTo(slideIndex);
-  console.log(slideref, cat)
+  // console.log(slideref, cat)
   var element = document.getElementById(cat);
   var headerOffset = 30; // adjust scroll to. 65 to show, 30 to cover cat heading
   var elementPosition = element.getBoundingClientRect().top;
@@ -108,7 +108,7 @@ const MenuCategories = props => {
     const menucats_top = stickyph.getBoundingClientRect().top + window.pageYOffset;
     
 
-    console.log(menucats_top);
+    // console.log(menucats_top);
     const onscrollFunc = function(){onscroll_for_menu_bar(navbar, stickyph, menucats_top)};
 
     window.addEventListener('scroll', onscrollFunc);

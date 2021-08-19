@@ -104,7 +104,7 @@ const Actions  = require('../redux/actions/index');
       if(!qr){
        setTimeout(async ()=>{
            await DataService.getQRInfo({id: id.match(/^[0-9a-fA-F]{24}$/) ? id : "" , alias:id}).then((res)=>{
-               // console.log(res.data);
+              //  console.log(res.data);
                if(!qr){ 
                        if(res.data.success){
                            setQr(res.data);
@@ -120,8 +120,8 @@ const Actions  = require('../redux/actions/index');
         setTimeout(async ()=>{
           await axios.post('https://api.tabme.io/api/v1/ds/tlinks/get/restaurant',  {restaurant_id:restaurant._id}).then((resp, err)=>{
             if(!err){
-              // console.log(resp.data.link_data);
-              setLinkButtons(resp.data.link_data);
+              console.log(resp.data.link_data);
+              setLinkButtons(resp.data.link_data.links);
             }
           });
       },0); 
