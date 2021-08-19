@@ -118,7 +118,7 @@ const Actions  = require('../redux/actions/index');
           }, 0);  
       }else{
         setTimeout(async ()=>{
-          await axios.post('https://api.tabme.io/api/v1/ds/tlinks/get/restaurant',  {restaurant_id:restaurant._id}).then((resp, err)=>{
+          await axios.post('https://api.tabme.io/api/v1/ds/tlinks/get/restaurant',  {restaurant_id:restaurant._id, alias:restaurant.alias}).then((resp, err)=>{
             if(!err){
               // console.log(resp.data.link_data);
               setLinkButtons(resp.data.link_data.links);
@@ -197,14 +197,14 @@ const Actions  = require('../redux/actions/index');
                     })}
 
             </div>
-            <div className="theme-card">
+            {/* <div className="theme-card">
               <h3>
                   <RiInstagramLine style={{color:'#E1306C'}}/>&nbsp;&nbsp;
                   <RiFacebookBoxFill style={{color:'#4267B2'}} />&nbsp;&nbsp;
                   <RiTwitterFill style={{color:'#1DA1F2'}}/>&nbsp;&nbsp; 
                   <span style={{fontSize:'20px', color:"#657786"}}>luca</span>
               </h3>
-            </div>
+            </div> */}
             </center>
             </Wrapper>}
         </div>
