@@ -120,7 +120,7 @@ const Actions  = require('../redux/actions/index');
         setTimeout(async ()=>{
           await axios.post('https://api.tabme.io/api/v1/ds/tlinks/get/restaurant',  {restaurant_id:restaurant._id}).then((resp, err)=>{
             if(!err){
-              console.log(resp.data.link_data);
+              // console.log(resp.data.link_data);
               setLinkButtons(resp.data.link_data.links);
             }
           });
