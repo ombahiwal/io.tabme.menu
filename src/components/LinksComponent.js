@@ -186,7 +186,7 @@ const Actions  = require('../redux/actions/index');
             </MainWrapper>
             <center>
             
-            <div className="theme-card">
+            <div className="">
             <h4><b>{restaurant.rname}</b></h4>
             {/* <p className="about-restaurant">{restaurant.about}</p> */}
             </div>
