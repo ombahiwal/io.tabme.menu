@@ -160,9 +160,9 @@ const Actions  = require('../redux/actions/index');
             dispatch(Actions.setTableNumber(qr.table_number));
             dispatch(Actions.setRestaurant(qr.gastro));
             dispatch(Actions.setMenu(qr.menu));
-            console.log('hrere');
+            // console.log('hrere');
             if(parseInt(qr.table_number) === -4){
-                console.log('hrere')
+                // console.log('hrere')
                 var new_cart = new Object(cart);
                 new_cart.order_label = qr.qr.label;
                 dispatch(Actions.updateCart(new_cart));
@@ -191,10 +191,27 @@ const Actions  = require('../redux/actions/index');
             {/* <p className="about-restaurant">{restaurant.about}</p> */}
             </div>
             <div>
-            <span><PaymentButton color={'#2f4f4f'} mode={restaurant.mode} link={restaurant.mode ? 'https://app.tabme.io/'+restaurant.alias : "menu6"} id={10} text={'Menu'} /></span>
+              {/*<span>
+            
+             <PaymentButton color={'#2f4f4f'} mode={restaurant.mode} link={restaurant.mode ? 'https://app.tabme.io/'+restaurant.alias : "menu6"} id={10} text={'Menu'} /></span> */}
             {link_buttons.map((lbtn, idx)=>{
-                                return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={lbtn.link_address} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span>
-                    })}
+              if(lbtn.active){
+                if(lbtn.type === 'default'){
+                  switch(lbtn.link_address){
+                    case 'menu':
+                      return <span><PaymentButton color={'#2f4f4f'} mode={restaurant.mode} link={restaurant.mode ? 'https://app.tabme.io/'+restaurant.alias : "menu6"} id={10} text={'Menu'} /></span>
+                    case 'pay':
+                      return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={`https://pay.tabme.io/${restaurant.alias}`} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span>
+                    case 'about':
+                      return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={`/${restaurant.alias}/about`} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span> 
+                  }
+              }else{
+                  return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={lbtn.link_address} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span>
+              }
+              }
+                        
+                
+            })}
 
             </div>
             {/* <div className="theme-card">
