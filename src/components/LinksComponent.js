@@ -199,7 +199,7 @@ const Actions  = require('../redux/actions/index');
                 if(lbtn.type === 'default'){
                   switch(lbtn.link_address){
                     case 'menu':
-                      return <span><PaymentButton color={'#2f4f4f'} mode={restaurant.mode} link={restaurant.mode ? 'https://app.tabme.io/'+restaurant.alias : "menu6"} id={10} text={'Menu'} /></span>
+                      return <span><PaymentButton color={'#2f4f4f'} mode={restaurant.mode} link={restaurant.mode ? 'https://app.tabme.io/'+restaurant.alias : "menu6"} id={10} text={lbtn.label} /></span>
                     case 'pay':
                       return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={`https://pay.tabme.io/${restaurant.alias}`} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span>
                     case 'about':
