@@ -10,6 +10,7 @@ import {Link} from "react-router-dom";
 */
 const PaymentButton = props => {
     // var Type = Link;
+    // border 2px solid ${props.color ? props.color: '#0a1e42'};
     const ButtonContainer = styled.div`
         display: flex;  
         color: ${props.color ? props.color: '#0a1e42'} ;
@@ -24,7 +25,6 @@ const PaymentButton = props => {
         margin-bottom:15px;
         margin-left:15px;
         width:90%;
-        border 2px solid ${props.color ? props.color: '#0a1e42'};
         border-radius:2.25rem;
         padding: 5px 10px;
         max-width:420px;

@@ -10,6 +10,7 @@ import {Link} from "react-router-dom";
 * @param  {props} props
 */
 const LinkButton = props => {
+    // border 2px solid ${props.color ? props.color: '#0a1e42'};
     const ButtonContainer = styled.div`
         display: flex;  
         color: ${props.color ? props.color: '#0a1e42'} ;
@@ -25,7 +26,7 @@ const LinkButton = props => {
         margin-bottom:15px;
         margin-left:15px;
         width:90%;
-        border 2px solid ${props.color ? props.color: '#0a1e42'};
+        
         border-radius:2.25rem;
         padding: 5px 10px;
         box-shadow: rgb(45 45 45 / 5%) 0px 2px 2px, rgb(49 49 49 / 5%) 0px 4px 4px, rgb(42 42 42 / 5%) 0px 8px 8px;
