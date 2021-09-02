@@ -204,6 +204,10 @@ const Actions  = require('../redux/actions/index');
                       return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={`https://pay.tabme.io/${restaurant.alias}`} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span>
                     case 'about':
                       return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={`/${restaurant.alias}/about`} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span> 
+                    case 'delivery':
+                      return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={`https://app.tabme.io/delivery/${restaurant.alias}`} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span> 
+                    case 'pickup':
+                      return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={`https://app.tabme.io/pickup/${restaurant.alias}`} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span> 
                   }
               }else{
                   return <span  key={idx+10}><LinkButton route={false} color={lbtn.color} link={lbtn.link_address} id={idx+10} text={lbtn.label} icon1={lbtn.icon1}/></span>
