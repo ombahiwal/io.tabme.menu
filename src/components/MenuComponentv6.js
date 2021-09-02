@@ -1,23 +1,25 @@
 /* eslint-disable */
 import React, {Component} from 'react';
 // import {FormGroup, Form, ListGroup, Tooltip} from 'reactstrap';
-import {Toast, Badge, Button, ButtonGroup} from 'react-bootstrap';
+import {Toast, Badge, Button, ButtonGroup, Collapse} from 'react-bootstrap';
+// import {BsInfoCircle } from "react-icons/bs";
 // UI Components
+import AnimatedShowMore from 'react-animated-show-more';
+// import ShowMoreText from "react-show-more-text";
+
 import Grid from './shared/Grid';
 import { Modal } from 'react-rainbow-components';
 // import DCard from './shared/Card';
 import CDCard from './shared/CartDishCard';
 import DCardImage from './shared/CardImage';
-
 import MenuBanner from './shared/MenuBanner';
 import MenuCategories from './shared/MenuCategories';
 import MenuCatTitle from './shared/MenuCategoryTitle';
-
 import CurrencySymbol from './CurrencySymbolComponent';
 import Cookies from 'universal-cookie';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 // import DataService from '../services/data-service';
-import sampleMenu from './shared/sampleMenu';
+// import sampleMenu from './shared/sampleMenu';
 import { Waypoint } from 'react-waypoint';
 import Drawer from './shared/drawer/dist/Drawer';
 import {FormattedMessage} from 'react-intl';
@@ -90,10 +92,10 @@ class Menu6 extends Component {
                 // 
             // Redirect to  (set True after dev)
             this.state = {cart:props.cart, status:false, menu:this.props.menu, isOpenInfo:false, dishInfo:{}, isOpenCustom:false, dishCustom:{}, customOptionValueRadio:'auto', open:false, redirect:true, tooltip:false, active_category:"Menu", menu_rendered:[]};
-            console.log(this.state.menu);
+            // console.log(this.state.menu);
         }else{
             cookies.set('menu', props.menu, {path:'/'});
-            this.state = {cart:props.cart, status:false, menu:this.props.menu, isOpenInfo:false, dishInfo:{}, isOpenCustom:false, dishCustom:{}, customOptionValueRadio:'auto', open:false, redirect:false, tooltip:false, active_category:"Menu", menu_rendered:[]};
+            this.state = {cart:props.cart, status:false, menu:this.props.menu, isOpenInfo:false, dishInfo:{}, isOpenCustom:false, dishCustom:{}, customOptionValueRadio:'auto', open:false, redirect:false, tooltip:false, active_category:"Menu", menu_rendered:[], collapses:{desc:false, allergen:false}};
         }
     }
 
@@ -304,27 +306,6 @@ class Menu6 extends Component {
                 }
             });
 
-            // console.log(c);
-            /*
-            console.log(dish_optionsets.find((optsetobj, idx)=>{
-                console.log(optsetobj, idx);
-                    return optsetobj.optionset.find((optn)=>{
-                            new_optionset.find((n_opt)=>{
-                                if(n_opt._id === optn._id){
-                                    if(_.isEqual(n_opt, optn)){
-                                        find = true;
-                                    }else{
-                                        find = false;
-                                        return false;
-                                    }
-                                }
-                            });
-                            return find;
-
-                    })
-            })); 
-            */
-            // console.log('index of option set', flag);
             return flag;
     }
 
@@ -456,7 +437,7 @@ class Menu6 extends Component {
         var oper;      
 
        // Find dish in Cart
-        // console.log('Increment Dish', cartdish, optsetobj, optionset_idx);
+        console.log('Increment Dish', cartdish, optsetobj, optionset_idx);
         oper = this.cart.dishes.find((dish, i)=>{
             
             if(cartdish.dish_id === dish.dish_id){
@@ -710,6 +691,7 @@ class Menu6 extends Component {
         return this.cart.itemCount;
     }
     
+    
     renderCustomisationModal(){
         var dish = this.state.dishCustom;
         // reference of menu dish
@@ -731,10 +713,86 @@ class Menu6 extends Component {
                                                                                                                         this.current_dish_count = 1;
                                                                                                                         this.current_required_ispresent = false;
                                                                                                                         this.current_required_isselected = false;}}>
-                <h4 style={{"marginRight":"28px"}}><b>{dish.name} {' '} </b></h4>
-               <h6><b><CurrencySymbol/> {dish.price.toFixed(2)}</b> </h6>
-                <small>{this.dishCatBreadCrumb(dish.category, dish.subcategory)}</small>
+                <h4 
+                //  onClick={() => this.setState({collapses:{desc:!this.state.collapses.desc}})}
+                 aria-controls="dish-description-collapse"
+                 aria-expanded={this.state.collapses.desc}
+                style={{"marginRight":"28px"}}>
+                <b>{dish.name}{' '} {/* <sup><small><BsInfoCircle/></small></sup> */}</b>
+                </h4>
+               <h6><b><CurrencySymbol/> {dish.price.toFixed(2)}</b></h6>
+                {/* <small>{this.dishCatBreadCrumb(dish.category, dish.subcategory)}</small> */}
+                {/* <small>
+                         <ShowMoreText
+                            lines={1}
+                            more="Show more"
+                            less="Show less"
+                            className="content-css"
+                            anchorClass="my-anchor-css-class"
+                            expanded={false}
+                            truncatedEndingComponent={"... "}
+                        >
+                        {dish.description}
+                        <br/><hr/>
+                            {this.dishAllergenDisplay(dish.allergen)}
+                        </ShowMoreText></small> */}
+                         <small> <AnimatedShowMore
+                            height={35}
+                            toggle={({ isOpen }) => isOpen ? 'show less' : 'show more' }
+                            speed={200}
+                            shadowColor="white">                            
+                            {dish.description}<br/><hr/>
+                            {this.dishAllergenDisplay(dish.allergen)}
+                            <br/><br/>
+                            </AnimatedShowMore>
+                            </small>
                 <hr/>
+                 {/* <div className="row">
+                        <div className="col-12"> 
+                        <b>Allergen Info</b>
+                    {this.dishAllergenDisplay(dish.allergen)}
+                    <span
+                            onClick={() => this.setState({collapses:{desc:!this.state.collapses.desc}})}
+                            aria-controls="dish-description-collapse"
+                            aria-expanded={this.state.collapses.desc}
+                        ><small><b>Description</b></small></span>
+                         
+                        <br/>
+                         <small> <AnimatedShowMore
+                            height={30}
+                            toggle={({ isOpen }) => isOpen ? 'show less' : 'show more' }
+                            speed={200}
+                            shadowColor="white">                            
+                            {dish.description}<br/><hr/>
+                            {this.dishAllergenDisplay(dish.allergen)}
+                            <br/><br/>
+                            </AnimatedShowMore>
+                            </small>
+                           
+                    <Collapse in={this.state.collapses.desc}>
+                            <div id="dish-description-collapse">
+    
+                            </div>
+                        </Collapse>
+
+
+                        </div>
+                    </div> */}
+                    {/* <div className="row">
+                        <div className="col-12"> 
+                        <span
+                            onClick={() => this.setState({collapses:{desc:this.state.collapses.desc, allergen:!this.state.collapses.allergen}})}
+                            aria-controls="dish-allergen-collapse"
+                            aria-expanded={this.state.collapses.allergen}
+                        ><b>Allergen</b></span>
+                        <Collapse in={this.state.collapses.allergen}>
+                        <div id="dish-allergen-collapse">
+                            
+                        </div>
+                        </Collapse>
+                        </div>
+                    </div> */}
+                
                 <div className="col-12">
                         {dish.options.map((option)=>{
                             var optn  = new Object({
@@ -1017,14 +1075,13 @@ class Menu6 extends Component {
 
     dishAllergenDisplay(aller){
         if(aller === "true"){
-            return(<><h6><b>Allergen Info</b></h6>
+            return(<>
+           <h6><b>Allergen Info</b></h6> 
                 <p><small>This dish may contain any of the following allergy inducing ingredients - Milk, Eggs, Wheat, gluten, Soy, Tree nuts, Fish, Shellfish, Peanuts.</small></p>
                 </>
             );
         }else{
-            return(
-                <p>-</p>
-            );
+            return(<span></span>);
         }
     }
 
@@ -1086,9 +1143,9 @@ class Menu6 extends Component {
         this.checkCurentRequiredSelected(dish);
         if(flag){
             dish = this.getDishfromMenu(dishId);
-            return this.setState({isOpenCustom: true, dishCustom:dish});
+            // return this.setState({isOpenCustom: true, dishCustom:dish, collapses:{allergen:false, desc:false}});
         }
-        return this.setState({isOpenCustom: true, dishCustom:dish});
+        return this.setState({isOpenCustom: true, dishCustom:dish,  collapses:{allergen:false, desc:false}});
     }
 
     ModalCustomOnClose(){
@@ -1103,6 +1160,8 @@ class Menu6 extends Component {
 
     // Redux Cart Update 
     updateInStore(newState){
+        cookies.remove('cart');
+        cookies.set('cart', newState,{path:'/'});
         this.props.updateCartInStore(newState);
     }
 
@@ -1136,8 +1195,7 @@ class Menu6 extends Component {
                 </div>    
                 
                 <div className="">
-                    {/* {this.renderTotal()} */}
-
+                    {this.renderTotal()}
                 </div>
                
                 {this.state.isOpenInfo && this.renderAllergenModal()}

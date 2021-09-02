@@ -57,13 +57,13 @@ const DCardImage = props => {
     <Wrapper
       className={props.className}
       centered={props.centered}
-      onClick={props.onClick}
-      style={props.dish.image ? {minHeight:'110px', maxHeight:'110px'}: {minHeight:'80px'}}
+      onClick={props.onClickAllergenInfo}
+      style={props.dish.image ? {minHeight:'110px', maxHeight:'150px'}: {minHeight:'100px'}}
       >
       {/* <ClickSpace  onClick={props.onClickCustom}/> */}
-      <Title onClick={props.onClickAllergenInfo} >{props.title} <sup>{veg}</sup></Title>
-      <TextWrapper onClick={props.onClickCustom}   centered={props.centered} >
-        <Price onClick={props.onClickCustom} ><CurrencySymbol/>&nbsp;{props.price.toFixed(2)}</Price>
+      <Title>{props.title} <sup>{veg}</sup></Title>
+      <TextWrapper  centered={props.centered} >
+        <Price ><CurrencySymbol/>&nbsp;{props.price.toFixed(2)}</Price>
         {/* <Veg>{props.veg}</Veg> */}
         {/* {(props.text && aboutExpand) && <TextExpanded onClick={()=>{ if(props.text.length > 87) setAboutExpand(!aboutExpand)}}>{props.text}</TextExpanded>} */}
         {(props.text && !aboutExpand) && <Text
