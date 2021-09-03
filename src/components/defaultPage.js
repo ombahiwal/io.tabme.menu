@@ -26,8 +26,8 @@ class DefaultPage extends Component{
                     {t('default_welcome')}
                     <br/>
                     
-                    <br/>
-                    <QRCodeReader/>
+                    {/* <br/> */}
+                    {/* <QRCodeReader/> */}
                     <br/>
                     {t('default_msg1')}
                     <br/>

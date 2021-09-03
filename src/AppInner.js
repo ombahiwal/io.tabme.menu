@@ -33,7 +33,7 @@ import StripeCheckout from './components/StripeCheckout';
 // import CheckoutExternal from './components/CashExternalComponent';
 import Menu6 from './components/MenuComponentv6';
 import SimpleMapView from './components/SimpleMapViewComponent';
-
+import LoadingOverlay from 'react-loading-overlay';
 // QR Code
 // import QRCodeDisplay from "react-qr-code";
 // Redux
@@ -41,6 +41,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 import history from './history';
 import { I18nProvider} from "./i18n/index";
@@ -58,13 +59,23 @@ class AppInner extends Component{
     this.state = {
       counter:0,
       state : false,
-      locale:'de-de'
+      locale:'de-de',
+      redirect:false,
+      loading:true
     };
 
     // console.log(props.restaurant)
     // ReactGA.initialize('UA-90856241-1');
     // ReactGA.pageview(window.location.pathname + window.location.search);
     
+  }
+  componentDidMount(){
+    if((document.domain === 'sortengold.de' || document.domain === 'www.sortengold.de') && window.location.pathname === '/'){
+      // window.location.href = ('https://sortengold.de/sg');
+        this.setState({redirect:true, loading:false});
+    }else{
+      this.setState({loading:false});
+    }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -98,8 +109,15 @@ pageRestaurantWelcome(){
 render() {
       return (
   <Router>
+    <LoadingOverlay
+      spinner
+      active={this.state.loading}>
+      <div style={{display: !this.state.loading ?'none':'block'}} className="loading-div2">.</div>
+    </LoadingOverlay>
+      {this.state.redirect && <Redirect to={'/sg'}/>}
   <I18nProvider locale={this.state.locale}>
     {/* <Heading history={history}/> */}
+    
     <div className="main-body">
       
      {/* <Tabs/> */}
@@ -166,6 +184,7 @@ render() {
           </div>
           {/* <CountContainer/> */}
           </I18nProvider>
+          
     </Router>
     );
   }

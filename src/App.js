@@ -21,7 +21,8 @@ class App extends Component{
       counter:0,
       state : false,
       locale:'de-de',
-      loading:true
+      loading:true,
+      redirect:false,
     };
     // console.log(props.restaurant)
     ReactGA.initialize('UA-90856241-1');
@@ -29,7 +30,7 @@ class App extends Component{
   }
   componentDidMount(){
     if((document.domain === 'sortengold.de' || document.domain === 'www.sortengold.de') && window.location.pathname === '/'){
-      window.location.href = ('https://sortengold.de/sg');
+      // window.location.href = ('https://sortengold.de/sg');
     }else{
       this.setState({loading:false});
     }
@@ -57,11 +58,11 @@ pageRestaurantWelcome(){
 render() {
   return (
     <Provider store={Store}>
-    <LoadingOverlay
+    {/* <LoadingOverlay
     spinner
     active={this.state.loading}>
       <div style={{display: !this.state.loading ?'none':'block'}} className="loading-div2">.</div>
-    </LoadingOverlay>
+    </LoadingOverlay> */}
       <AppInner/>
      </Provider> 
     );

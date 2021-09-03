@@ -140,7 +140,7 @@ class Menu6 extends Component {
              bottomOffset ="80%"
              onEnter={()=>{
                 //  console.log(`MEnu leave start`);
-                 this.setState({active_category:"Menu", active_category_index:-1})}}
+             this.setState({active_category:"Menu", active_category_index:-1})}}
          /> 
 
      {this.state.menu.categories.map((cat, cat_idx)=>{
