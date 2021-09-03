@@ -12,6 +12,7 @@ import Store from './redux/Store';
 import history from './history';
 import ReactGA from 'react-ga';
 import AppInner from './AppInner';
+import LoadingOverlay from 'react-loading-overlay';
 
 class App extends Component{
   constructor(props){
@@ -19,7 +20,8 @@ class App extends Component{
     this.state = {
       counter:0,
       state : false,
-      locale:'de-de'
+      locale:'de-de',
+      loading:true
     };
     // console.log(props.restaurant)
     ReactGA.initialize('UA-90856241-1');
@@ -28,6 +30,8 @@ class App extends Component{
   componentDidMount(){
     if((document.domain === 'sortengold.de' || document.domain === 'www.sortengold.de') && window.location.pathname === '/'){
       window.location.href = ('https://sortengold.de/sg');
+    }else{
+      this.setState({loading:false});
     }
   }
   componentDidUpdate(prevProps, prevState, snapshot) { 
@@ -53,6 +57,11 @@ pageRestaurantWelcome(){
 render() {
   return (
     <Provider store={Store}>
+    <LoadingOverlay
+    spinner
+    active={this.state.loading}>
+      <div style={{display: !this.state.loading ?'none':'block'}} className="loading-div2">.</div>
+    </LoadingOverlay>
       <AppInner/>
      </Provider> 
     );

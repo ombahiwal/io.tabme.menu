@@ -638,3 +638,7 @@ button[data-id="button-icon-element"] svg{
   margin: 15px 4% 5px 4%;
   width:92%;
 }
+.loading-div2{
+  height:100vh;
+  width:100vw;
+}
