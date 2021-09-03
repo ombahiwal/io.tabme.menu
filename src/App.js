@@ -25,6 +25,11 @@ class App extends Component{
     ReactGA.initialize('UA-90856241-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
+  componentDidMount(){
+    if((document.domain === 'sortengold.de' || document.domain === 'www.sortengold.de') && window.location.pathname === '/'){
+      window.location.href = ('https://sortengold.de/sg');
+    }
+  }
   componentDidUpdate(prevProps, prevState, snapshot) { 
   }
 pageDefault(){
