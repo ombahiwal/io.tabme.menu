@@ -58,11 +58,6 @@ pageRestaurantWelcome(){
 render() {
   return (
     <Provider store={Store}>
-    {/* <LoadingOverlay
-    spinner
-    active={this.state.loading}>
-      <div style={{display: !this.state.loading ?'none':'block'}} className="loading-div2">.</div>
-    </LoadingOverlay> */}
       <AppInner/>
      </Provider> 
     );
