@@ -880,7 +880,9 @@ class Menu6 extends Component {
 
                     
                                 <button className="theme-button button-modal-addtocart"  disabled={this.checkDishAddButtonState()}  variant="dark" onClick={()=>{this.addDishtoCart(dish, this.current_dish_count);}}>
-                                        <b>{t('add_btn')} {'  '}<small>{this.getCurrentDishPrice()}</small></b>
+                                        <b>{t('add_btn')} {'  '}
+                                        {/*<small> {this.getCurrentDishPrice()}</small> */}
+                                        </b>
                                     </button>    
                         </div>
                     </div>
