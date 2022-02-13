@@ -16,6 +16,22 @@ class DefaultPage extends Component{
     componentDidMount(){
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0;
+        switch(document.location.hostname){
+            case 'four-seasons-goe.de':
+                document.location = "https://four-seasons-goe.de/4seasons"
+            break;
+            case 'www.four-seasons-goe.de':
+                document.location = "https://www.four-seasons-goe.de/4seasons"
+            break;
+            case 'vietal-village-goe.de':
+                document.location = "https://vietal-village-goe.de/vietal"
+            break;
+            case 'www.vietal-village-goe.de':
+                document.location = "https://www.vietal-village-goe.de/vietal"
+            break;
+        }
+        //  if(document.location.hostname !== 'four-seasons-goe.de' || document.location.hostname !== 'www.four-seasons-goe.de')
+        //       document.location = "https://fout.de"
     }
     
     render(){

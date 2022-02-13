@@ -126,21 +126,21 @@ render() {
         <Route path="/welcome">
             {this.pageRestaurantWelcome}
         </Route>
-      {/* <Route path="/register">
-            {this.pageRegister}
-        </Route>
-        <Route path="/login">
-            {this.pageLogin}
-        </Route> */}
-      {/* <Route path="/qr">
-            <QRCodeDisplay value="TABME"/>
-        </Route> */}
-        <Route path="/scan">
-            <QRCodeReader/>
-        </Route>
+            {/* <Route path="/register">
+                  {this.pageRegister}
+              </Route>
+              <Route path="/login">
+                  {this.pageLogin}
+              </Route> */}
+            {/* <Route path="/qr">
+                  <QRCodeDisplay value="TABME"/>
+              </Route> */}
+          <Route path="/scan">
+              <QRCodeReader/>
+          </Route>
 
           <Route path="/menu6">
-            <Menu6 />
+            <Menu6/>
           </Route>
 
           <Route path="/map">

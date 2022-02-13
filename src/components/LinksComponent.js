@@ -101,6 +101,7 @@ const Actions  = require('../redux/actions/index');
     
     useEffect(()=>{
       // console.log( document.location.hostname.split('.')[0], 'menu.tabme.io'.split('.'))
+      console.log(document.location.hostname)
       if(!qr){
        setTimeout(async ()=>{
            await DataService.getQRInfo({id: id.match(/^[0-9a-fA-F]{24}$/) ? id : "" , alias:id}).then((res)=>{
@@ -118,9 +119,11 @@ const Actions  = require('../redux/actions/index');
           }, 0);  
       }else{
         setTimeout(async ()=>{
+          
+          // if(document.location.hostname !== 'four-seasons-goe.de' || document.location.hostname !== 'www.four-seasons-goe.de')
+          //     restaurant.alias = "4seasons"
           await axios.post('https://api.tabme.io/api/v1/ds/tlinks/get/restaurant',  {restaurant_id:restaurant._id, alias:restaurant.alias}).then((resp, err)=>{
             if(!err){
-              // console.log(resp.data.link_data);
               setLinkButtons(resp.data.link_data.links);
             }
           });

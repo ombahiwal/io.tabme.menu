@@ -48,7 +48,7 @@ function Process(subprop){
     // console.log(subprop);
     // console.log(cookies.get('user'));
     // const { t, i18n } = useTranslation();
-
+    
     const dispatch = useDispatch();
     // var Ord;
     function onClickLogout(){
@@ -101,6 +101,7 @@ function Process(subprop){
                 
                 // console.log(user)
             }, 0);
+            
     },[activePage, user]);
     var count = 0;
     var dt_order;
@@ -254,6 +255,12 @@ function Process(subprop){
 
 
 function Home(){
+    // useEffect(()=>{
+        
+    //             // if(document.location.hostname !== 'four-seasons-goe.de' || document.location.hostname !== 'www.four-seasons-goe.de')
+    //             //     document.location = "https://four-seasons-goe.de/4seasons"
+
+    // },[])
     return <Process props/>
 }
 
